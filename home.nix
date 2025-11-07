@@ -24,7 +24,12 @@
   
   home.sessionVariables = {
     XDG_SESSION_TYPE = "wayland";
+    GTK_IM_MODULE = "ibus";
+    QT_IM_MODULE = "ibus";
+    XMODIFIERS = "@im=ibus";
+    
   };
   
   xdg.configFile."niri/config.kdl".source = ./configs/niri/config.kdl;
+
 }
