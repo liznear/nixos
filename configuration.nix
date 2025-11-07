@@ -26,7 +26,7 @@
   i18n.inputMethod = {
     enable = true;
     type = "ibus";
-    ibus.engines = with pkgs.ibus-engines; [ pinyin ];
+    ibus.engines = with pkgs.ibus-engines; [ libpinyin ];
   };
 
   environment.systemPackages = with pkgs; [
