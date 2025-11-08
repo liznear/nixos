@@ -48,7 +48,7 @@
     _1password-gui
     vivaldi
     kitty
-    fuzzel
+    rofi
   ];
   
   home.sessionVariables = {
