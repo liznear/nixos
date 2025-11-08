@@ -51,11 +51,16 @@
     };
   };
 
+  services.copyq.enable = true;
+
   home.packages = with pkgs; [
     _1password-gui
     vivaldi
     kitty
     rofi
+    helix
+    zed-editor
+    obsidian
   ];
   
   home.sessionVariables = {
