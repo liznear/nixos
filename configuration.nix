@@ -58,6 +58,13 @@
 
   services.openssh.enable = true;
   services.upower.enable = true;
+  services.libinput = {
+    enable = true;
+    touchpad = {
+      disableWhileTyping = true;
+      accelSpeed = "-0.5";
+    };
+  };
 
   users.users.nearsyh = {
     isNormalUser = true;

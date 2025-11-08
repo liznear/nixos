@@ -36,4 +36,10 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.trackpoint = {
+    device = "TPPS/2 Synaptics TrackPoint";
+    enable = true;
+    speed = 40;
+    sensitivity = 60;
+  };
 }
