@@ -13,13 +13,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos-lap"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.wireless.networks = {
-    "PangPang_5G" = {
-      psk = "1qaz2wsx";
-    };
-  };
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   time.timeZone = "Asia/Shanghai";
 
@@ -37,9 +31,21 @@
     inputs.noctalia.packages.${system}.default
   ];
 
-  fonts.packages = with pkgs; [
-    maple-mono.NF-CN-unhinted
-  ];
+  fonts = {
+    packages = with pkgs; [
+      maple-mono.NF-CN-unhinted
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+    ];
+    fontconfig = {
+      defaultFonts = {
+        sansSerif = [ "Noto Sans CJK SC" ];
+        serif = [ "Noto Serif CJK SC" ];
+        monospace = [ "Maple Mono NF CN" ];
+      };
+    };
+  };
 
   programs.niri.enable = true;
   programs.zsh.enable = true;
@@ -48,12 +54,19 @@
 
   users.users.nearsyh = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    substituters = [
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=10"
+      "https://mirrors.ustc.edu.cn/nix-channels/store?priority=5"
+      "https://cache.nixos.org/"
+    ];
+  };
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "25.05"; # Did you read the comment?
 

@@ -2,4 +2,4 @@
 
 git add -A
 
-nixos-rebuild switch --flake '.#nixos-lap'
+sudo nixos-rebuild switch --flake '.#nixos-lap'
