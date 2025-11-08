@@ -35,7 +35,6 @@
     vivaldi
     kitty
     fuzzel
-    asdf-vm
   ];
   
   home.sessionVariables = {

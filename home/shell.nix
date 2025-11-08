@@ -19,12 +19,6 @@ function dinit() {
   nix flake init --template "https://flakehub.com/f/the-nix-way/dev-templates/*#$1"
 }
 
-# asdf
-. "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
-autoload -Uz bashcompinit && bashcompinit
-. "${pkgs.asdf-vm}/share/asdf-vm/completions/asdf.bash"
-. ~/.asdf/plugins/golang/set-env.zsh
-
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export GITHUB_TOKEN=op://Private/GitHub_Liz/token
@@ -42,6 +36,7 @@ export OPENROUTER_API_KEY="op://Private/OpenRouter/Saved on openrouter.ai/Marimo
     enable = true;
     enableZshIntegration = true;
     nix-direnv.enable = true;
+    mise.enable = true;
   };
   programs.atuin = {
     enable = true;
@@ -58,6 +53,10 @@ export OPENROUTER_API_KEY="op://Private/OpenRouter/Saved on openrouter.ai/Marimo
       theme = "catppuccin-latte";
     };
     enableZshIntegration = false;
+  };
+  programs.mise = {
+    enable = true;
+    enableZshIntegration = true;
   };
   programs.starship.enable = true;
 }
