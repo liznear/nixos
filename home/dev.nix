@@ -67,4 +67,5 @@ export OPENROUTER_API_KEY="op://Private/OpenRouter/Saved on openrouter.ai/Marimo
     enableZshIntegration = true;
   };
   programs.starship.enable = true;
+  programs.codex.enable = true;
 }
