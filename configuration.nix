@@ -19,10 +19,16 @@
 
   powerManagement.enable = true;
 
+  i18n = {
+    supportedLocales = [ "en_US.UTF-8/UTF-8" "zh_CN.UTF-8/UTF-8" ];
+  };
   i18n.inputMethod = {
     enable = true;
-    type = "ibus";
-    ibus.engines = with pkgs.ibus-engines; [ libpinyin ];
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      qt6Packages.fcitx5-chinese-addons
+    ];
+    fcitx5.waylandFrontend = true;
   };
 
   environment.systemPackages = with pkgs; [
