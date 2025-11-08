@@ -7,15 +7,16 @@
 
   imports = [
     inputs.noctalia.homeModules.default
+    ./shell.nix
   ];
 
   programs.git = {
     enable = true;
-    userName  = "Liiiz";
-    userEmail = "liizznear@gmail.com";
-  };
-  programs.zsh = {
-    enable = true;
+    settings = {
+      user.name  = "Liiiz";
+      user.email = "liizznear@gmail.com";
+      init.defaultBranch = "main";
+    }; 
   };
   programs.noctalia-shell = {
     enable = true;
@@ -34,6 +35,7 @@
     vivaldi
     kitty
     fuzzel
+    asdf-vm
   ];
   
   home.sessionVariables = {
@@ -45,5 +47,4 @@
   };
   
   xdg.configFile."niri/config.kdl".source = ./configs/niri/config.kdl;
-
 }

@@ -40,6 +40,6 @@
     device = "TPPS/2 Synaptics TrackPoint";
     enable = true;
     speed = 40;
-    sensitivity = 60;
+    sensitivity = 100;
   };
 }

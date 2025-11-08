@@ -26,7 +26,7 @@
             extraSpecialArgs = { inherit inputs; };
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.nearsyh = import ./home.nix;
+            users.nearsyh = import ./home;
             backupFileExtension = "backup";
           };
         }
