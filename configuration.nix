@@ -27,6 +27,7 @@
     type = "fcitx5";
     fcitx5.addons = with pkgs; [
       qt6Packages.fcitx5-chinese-addons
+      catppuccin-fcitx5
     ];
     fcitx5.waylandFrontend = true;
   };

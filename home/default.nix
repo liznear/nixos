@@ -9,12 +9,19 @@
     inputs.noctalia.homeModules.default
     inputs.stylix.homeModules.stylix
     ./dev.nix
+    ./webapp.nix
   ];
 
   stylix = {
     enable = true;
     autoEnable = true;
     base16Scheme = "/${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
+    icons = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      light = "Papirus-Light";
+      dark = "Papirus-Dark";
+    };
     fonts = {
       serif = {
         package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd;
@@ -59,5 +66,9 @@
     TERMINAL = "kitty";
   };
   
+  home.file.".icons" = {
+    source = ./resources/icons;
+    recursive = true;
+  };
   xdg.configFile."niri/config.kdl".source = ./configs/niri/config.kdl;
 }
