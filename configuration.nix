@@ -57,6 +57,7 @@
   programs.zsh.enable = true;
 
   services.openssh.enable = true;
+  services.upower.enable = true;
 
   users.users.nearsyh = {
     isNormalUser = true;
