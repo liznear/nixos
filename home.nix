@@ -24,6 +24,8 @@
     enable = true;
     settings = {
       font_family = "Maple Mono NF CN";
+      hide_window_decorations = "yes";
+      enable_audio_bell = "no";
     };
   };
 
