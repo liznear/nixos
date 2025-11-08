@@ -299,6 +299,11 @@ animations {
     // slowdown 3.0
 }
 
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+}
+
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules

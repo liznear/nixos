@@ -1,6 +1,14 @@
 { config, pkgs, lib, ... }:
 
 {
+  programs.git = {
+    enable = true;
+    settings = {
+      user.name  = "Liiiz";
+      user.email = "liizznear@gmail.com";
+      init.defaultBranch = "main";
+    }; 
+  };
   programs.zsh = {
     enable = true;
     oh-my-zsh = {

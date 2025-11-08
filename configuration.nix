@@ -43,6 +43,7 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
+      inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
     ];
     fontconfig = {
       defaultFonts = {

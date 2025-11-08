@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+sudo nix profile wipe-history --older-than 1d --profile /nix/var/nix/profiles/system
+sudo nix-collect-garbage --delete-old
+nix-collect-garbage --delete-old

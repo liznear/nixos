@@ -7,22 +7,36 @@
 
   imports = [
     inputs.noctalia.homeModules.default
-    ./shell.nix
+    inputs.stylix.homeModules.stylix
+    ./dev.nix
   ];
 
-  programs.git = {
+  stylix = {
     enable = true;
-    settings = {
-      user.name  = "Liiiz";
-      user.email = "liizznear@gmail.com";
-      init.defaultBranch = "main";
-    }; 
+    autoEnable = true;
+    base16Scheme = "/${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
+    fonts = {
+      serif = {
+        package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd;
+        name = "SFProDisplay Nerd Font";
+      };
+      sansSerif = {
+        package = pkgs.fira-sans;
+        name = "Fira Sans";
+      };
+      monospace = {
+        package = pkgs.maple-mono.NF-CN-unhinted;
+        name = "Maple Mono NF CN";
+      };
+    };
   };
+
   programs.noctalia-shell = {
     enable = true;
   };
   programs.kitty = {
     enable = true;
+    themeFile = "Catppuccin-Latte";
     settings = {
       font_family = "Maple Mono NF CN";
       hide_window_decorations = "yes";
