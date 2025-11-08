@@ -1,10 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
-
   home.username = "nearsyh";
   home.homeDirectory = "/home/nearsyh";
   home.stateVersion = "25.05";
+
+  imports = [
+    inputs.noctalia.homeModules.default
+  ];
 
   programs.git = {
     enable = true;
@@ -14,11 +17,20 @@
   programs.zsh = {
     enable = true;
   };
+  programs.noctalia-shell = {
+    enable = true;
+  };
+  programs.kitty = {
+    enable = true;
+    settings = {
+      font_family = "Maple Mono NF CN";
+    };
+  };
 
   home.packages = with pkgs; [
     _1password-gui
     vivaldi
-    ghostty
+    kitty
     fuzzel
   ];
   

@@ -1,3 +1,5 @@
 #!/usr/bin/env zsh
 
-sudo nixos-rebuild switch --flake '.#nixos-lap'
+git add -A
+
+nixos-rebuild switch --flake '.#nixos-lap'

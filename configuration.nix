@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -23,6 +23,8 @@
 
   time.timeZone = "Asia/Shanghai";
 
+  powerManagement.enable = true;
+
   i18n.inputMethod = {
     enable = true;
     type = "ibus";
@@ -32,6 +34,11 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
+    inputs.noctalia.packages.${system}.default
+  ];
+
+  fonts.packages = with pkgs; [
+    maple-mono.NF-CN-unhinted
   ];
 
   programs.niri.enable = true;
