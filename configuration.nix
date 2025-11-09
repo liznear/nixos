@@ -14,6 +14,9 @@
 
   networking.hostName = "nixos-lap"; # Define your hostname.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.hosts = {
+    "185.199.108.133" = [ "raw.githubusercontent.com" ];
+  };
 
   time.timeZone = "Asia/Shanghai";
 
@@ -60,6 +63,20 @@
 
   services.openssh.enable = true;
   services.upower.enable = true;
+  services.thermald.enable = true;
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      battery = {
+         governor = "powersave";
+         turbo = "never";
+      };
+      charger = {
+         governor = "performance";
+         turbo = "auto";
+      };
+    };
+  };
   services.libinput = {
     enable = true;
     touchpad = {

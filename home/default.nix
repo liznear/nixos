@@ -61,6 +61,7 @@
     helix
     zed-editor
     obsidian
+    htop
   ];
   
   home.sessionVariables = {
