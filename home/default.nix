@@ -8,6 +8,7 @@
   imports = [
     inputs.noctalia.homeModules.default
     inputs.stylix.homeModules.stylix
+    ./rofi
     ./dev.nix
     ./webapp.nix
   ];
@@ -57,13 +58,13 @@
     _1password-gui
     vivaldi
     kitty
-    rofi
+    # rofi
     helix
     zed-editor
     obsidian
     htop
   ];
-  
+
   home.sessionVariables = {
     XDG_SESSION_TYPE = "wayland";
     GDK_BACKEND = "wayland";
@@ -71,7 +72,7 @@
     TERM = "kitty";
     TERMINAL = "kitty";
   };
-  
+
   home.file.".icons" = {
     source = ./resources/icons;
     recursive = true;
