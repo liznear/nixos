@@ -70,6 +70,9 @@
       battery = {
          governor = "powersave";
          turbo = "never";
+         enable_thresholds = true;
+         start_threshold = 60;
+         stop_threshold = 80;
       };
       charger = {
          governor = "performance";
@@ -104,4 +107,3 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
-
