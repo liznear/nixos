@@ -58,11 +58,11 @@
     _1password-gui
     vivaldi
     kitty
-    # rofi
     helix
     zed-editor
     obsidian
     htop
+    nixd
   ];
 
   home.sessionVariables = {
