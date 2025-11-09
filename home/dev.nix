@@ -7,7 +7,7 @@
       user.name  = "Liiiz";
       user.email = "liizznear@gmail.com";
       init.defaultBranch = "main";
-    }; 
+    };
   };
   programs.zsh = {
     enable = true;
@@ -68,4 +68,38 @@ export OPENROUTER_API_KEY="op://Private/OpenRouter/Saved on openrouter.ai/Marimo
   };
   programs.starship.enable = true;
   programs.codex.enable = true;
+
+
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
+  };
+
+  home.file.".ssh/config".text = ''
+Host *
+	IdentityAgent ~/.1password/agent.sock
+
+Host lizgit
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/liz.pub
+
+Host neargit
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/near.pub
+
+Host linux-home
+  HostName 192.168.2.159
+  User nearsyh
+  ForwardAgent yes
+  IdentityFile ~/.ssh/liz.pub
+  SetEnv TERM=xterm-256color
+'';
+
+  home.file.".ssh" = {
+    source = ./configs/ssh;
+    # copy the scripts directory recursively
+    recursive = true;
+  };
 }
