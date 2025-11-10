@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -12,8 +12,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos-lap"; # Define your hostname.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.hostName = "nixos-lap";
+  networking.networkmanager.enable = true;
   networking.hosts = {
     "185.199.108.133" = [ "raw.githubusercontent.com" ];
   };
@@ -37,6 +37,7 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
+    vulkan-tools
     inputs.noctalia.packages.${system}.default
   ];
 
@@ -60,6 +61,7 @@
   programs.niri.enable = true;
   programs.zsh.enable = true;
 
+  services.xserver.videoDrivers = [ "modesetting" ];
   services.openssh.enable = true;
   services.upower.enable = true;
   services.thermald.enable = true;
@@ -95,7 +97,7 @@
   };
 
   powerManagement.enable = true;
-  boot.kernelParams = [ "resume_offset=38912" "mem_sleep_default=deep" ];
+  boot.kernelParams = [ "resume_offset=38912" "mem_sleep_default=deep" "i915.enable_dc=2" "i915.enable_psr=1" ];
   boot.resumeDevice = "/dev/disk/by-uuid/050a2230-5bc9-4e1e-8ff2-e3b142515427";
   swapDevices = [
     {

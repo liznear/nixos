@@ -11,7 +11,6 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/050a2230-5bc9-4e1e-8ff2-e3b142515427";
@@ -41,5 +40,16 @@
     enable = true;
     speed = 40;
     sensitivity = 100;
+  };
+
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      libva-utils
+      libvdpau-va-gl
+    ];
   };
 }
