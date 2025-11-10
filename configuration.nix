@@ -20,7 +20,6 @@
 
   time.timeZone = "Asia/Shanghai";
 
-  powerManagement.enable = true;
 
   i18n = {
     supportedLocales = [ "en_US.UTF-8/UTF-8" "zh_CN.UTF-8/UTF-8" ];
@@ -94,6 +93,25 @@
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
+
+  powerManagement.enable = true;
+  boot.kernelParams = [ "resume_offset=38912" "mem_sleep_default=deep" ];
+  boot.resumeDevice = "/dev/disk/by-uuid/050a2230-5bc9-4e1e-8ff2-e3b142515427";
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 32 * 1024; # 32GB
+    }
+  ];
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend-then-hibernate";
+    HandlePowerKey = "hibernate";
+    HandlePowerKeyLongPress = "poweroff";
+  };
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=30m
+    SuspendState=mem
+  '';
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];

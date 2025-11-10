@@ -63,6 +63,7 @@
     obsidian
     htop
     nixd
+    zotero
   ];
 
   home.sessionVariables = {
