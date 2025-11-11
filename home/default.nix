@@ -10,6 +10,7 @@
     inputs.stylix.homeModules.stylix
     ./rofi
     ./dev.nix
+    ./vscode.nix
     ./webapp.nix
   ];
 
@@ -73,6 +74,7 @@
     MOZ_ENABLE_WAYLAND = "1";
     TERM = "kitty";
     TERMINAL = "kitty";
+    NIXOS_OZONE_WL = "1";
   };
 
   home.file.".icons" = {
