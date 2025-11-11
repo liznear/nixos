@@ -16,6 +16,7 @@
   networking.networkmanager.enable = true;
   networking.hosts = {
     "185.199.108.133" = [ "raw.githubusercontent.com" ];
+    "172.64.155.209" = [ "chatgpt.com" ];
   };
 
   time.timeZone = "Asia/Shanghai";
@@ -38,7 +39,7 @@
     vim
     wget
     vulkan-tools
-    inputs.noctalia.packages.${system}.default
+    inputs.noctalia.packages.${stdenv.hostPlatform.system}.default
   ];
 
   fonts = {
@@ -47,7 +48,7 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
-      inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
+      inputs.apple-fonts.packages.${pkgs.stdenv.hostPlatform.system}.sf-pro-nerd
     ];
     fontconfig = {
       defaultFonts = {
@@ -60,6 +61,7 @@
 
   programs.niri.enable = true;
   programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
 
   services.xserver.videoDrivers = [ "modesetting" ];
   services.openssh.enable = true;
@@ -97,7 +99,7 @@
   };
 
   powerManagement.enable = true;
-  boot.kernelParams = [ "resume_offset=38912" "mem_sleep_default=deep" "i915.enable_dc=2" "i915.enable_psr=1" ];
+  boot.kernelParams = [ "resume_offset=38912" "mem_sleep_default=s2idle" "i915.enable_dc=2" "i915.enable_psr=1" ];
   boot.resumeDevice = "/dev/disk/by-uuid/050a2230-5bc9-4e1e-8ff2-e3b142515427";
   swapDevices = [
     {
