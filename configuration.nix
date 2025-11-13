@@ -63,6 +63,7 @@
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;
 
+  services.fprintd.enable = true;
   services.xserver.videoDrivers = [ "modesetting" ];
   services.openssh.enable = true;
   services.upower.enable = true;

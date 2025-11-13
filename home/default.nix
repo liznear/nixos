@@ -53,8 +53,6 @@
     };
   };
 
-  services.copyq.enable = true;
-
   home.packages = with pkgs; [
     _1password-gui
     vivaldi
@@ -66,6 +64,7 @@
     nixd
     zotero
     uv
+    dex
   ];
 
   home.sessionVariables = {
