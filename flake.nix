@@ -19,6 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     apple-fonts.url= "github:Lyndeno/apple-fonts.nix";
+    vicinae.url = "github:vicinaehq/vicinae";
   };
   outputs = inputs@{ self, nixpkgs, home-manager, stylix, ... }: {
     nixosConfigurations."nixos-lap" = nixpkgs.lib.nixosSystem {

@@ -8,7 +8,7 @@
   imports = [
     inputs.noctalia.homeModules.default
     inputs.stylix.homeModules.stylix
-    ./rofi
+    ./vicinae.nix
     ./dev.nix
     ./vscode.nix
     ./webapp.nix

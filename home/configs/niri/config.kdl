@@ -191,6 +191,7 @@ layout {
 
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "fcitx5"
+spawn-sh-at-startup "vicinae server"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -235,8 +236,11 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun" "--show-icons"; }
+    Mod+D hotkey-overlay-title="Run an Application: vicinae" repeat=false { spawn "vicinae" "toggle"; }
     Ctrl+Alt+Q hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+
+    Ctrl+Shift+C repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
+    // Ctrl+Alt+Space repeat=false { spawn "chatgpt" }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
