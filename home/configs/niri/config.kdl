@@ -239,7 +239,7 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: vicinae" repeat=false { spawn "vicinae" "toggle"; }
     Ctrl+Alt+Q hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
-    Ctrl+Alt+C repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
+    Alt+Shift+C repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
     Ctrl+Alt+Space repeat=false { spawn "dex" "/etc/profiles/per-user/nearsyh/share/applications/vivaldi-chatgpt.com__-Default.desktop"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }

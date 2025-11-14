@@ -92,9 +92,18 @@
     };
   };
 
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
   users.users.nearsyh = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "podman" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
