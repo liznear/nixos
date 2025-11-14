@@ -6,9 +6,10 @@
   home.stateVersion = "25.05";
 
   imports = [
-    inputs.noctalia.homeModules.default
+    # inputs.noctalia.homeModules.default
     inputs.stylix.homeModules.stylix
-    ./vicinae.nix
+    inputs.niri.homeModules.niri
+    ./shell.nix
     ./dev.nix
     ./vscode.nix
     ./webapp.nix
@@ -40,9 +41,10 @@
     };
   };
 
-  programs.noctalia-shell = {
-    enable = true;
-  };
+  # programs.noctalia-shell = {
+  #   enable = true;
+  # };
+  programs.niri.config = null;
   programs.kitty = {
     enable = true;
     themeFile = "Catppuccin-Latte";

@@ -9,6 +9,10 @@
       url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +24,15 @@
     };
     apple-fonts.url= "github:Lyndeno/apple-fonts.nix";
     vicinae.url = "github:vicinaehq/vicinae";
+    dgop = {
+      url = "github:AvengeMedia/dgop";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    dankMaterialShell = {
+      url = "github:AvengeMedia/DankMaterialShell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.dgop.follows = "dgop";
+    };
   };
   outputs = inputs@{ self, nixpkgs, home-manager, stylix, ... }: {
     nixosConfigurations."nixos-lap" = nixpkgs.lib.nixosSystem {
