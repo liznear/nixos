@@ -73,6 +73,7 @@
     zotero
     uv
     dex
+    zeal
   ];
 
   home.sessionVariables = {

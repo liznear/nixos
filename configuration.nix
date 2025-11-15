@@ -117,7 +117,7 @@
     }
   ];
   services.logind.settings.Login = {
-    HandleLidSwitch = "suspend";
+    HandleLidSwitch = "suspend-then-hibernate";
     HandlePowerKey = "hibernate";
     HandlePowerKeyLongPress = "poweroff";
   };
@@ -130,8 +130,8 @@
       };
     };
   };
-  # HibernateDelaySec=30m
   systemd.sleep.extraConfig = ''
+    HibernateDelaySec=30m
     SuspendState=mem
   '';
 
