@@ -6,9 +6,9 @@
   home.stateVersion = "25.05";
 
   imports = [
-    # inputs.noctalia.homeModules.default
     inputs.stylix.homeModules.stylix
     inputs.niri.homeModules.niri
+    inputs.vicinae.homeManagerModules.default
     ./shell.nix
     ./dev.nix
     ./vscode.nix
@@ -41,9 +41,6 @@
     };
   };
 
-  # programs.noctalia-shell = {
-  #   enable = true;
-  # };
   programs.niri.config = null;
   programs.kitty = {
     enable = true;
@@ -52,6 +49,15 @@
       font_family = "Maple Mono NF CN";
       hide_window_decorations = "yes";
       enable_audio_bell = "no";
+    };
+  };
+
+  services.vicinae = {
+    enable = true;
+    autoStart = true;
+    settings = {
+      faviconService = "twenty";
+      theme.name = "catppuccin-latte";
     };
   };
 

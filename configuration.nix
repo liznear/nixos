@@ -39,7 +39,6 @@
     vim
     wget
     vulkan-tools
-    inputs.noctalia.packages.${stdenv.hostPlatform.system}.default
   ];
 
   fonts = {
@@ -118,12 +117,21 @@
     }
   ];
   services.logind.settings.Login = {
-    HandleLidSwitch = "suspend-then-hibernate";
+    HandleLidSwitch = "suspend";
     HandlePowerKey = "hibernate";
     HandlePowerKeyLongPress = "poweroff";
   };
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session";
+        user = "nearsyh";
+      };
+    };
+  };
+  # HibernateDelaySec=30m
   systemd.sleep.extraConfig = ''
-    HibernateDelaySec=30m
     SuspendState=mem
   '';
 
