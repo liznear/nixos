@@ -22,6 +22,7 @@
         "screencastMode.fontSize" = 64.0;
         "terminal.integrated.fontSize" = 15.0;
         "workbench.colorTheme" = "Stylix";
+        "jupyter.askForKernelRestart" = false;
       };
       extensions = with pkgs.vscode-extensions; [
         ms-toolsai.jupyter

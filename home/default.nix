@@ -75,6 +75,8 @@
     dex
     zeal
     tree
+    zip
+    unzip
   ];
 
   home.sessionVariables = {
