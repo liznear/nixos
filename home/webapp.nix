@@ -10,13 +10,13 @@
       categories = [ "Utility" ];
       icon = "/home/nearsyh/.icons/chatgpt.svg";
     };
-    "vivaldi-music.apple.com__-Default" = {
-      name = "Apple Music";
+    "vivaldi-music.youtube.com__-Default" = {
+      name = "Youtube Music";
       genericName = "Music";
-      exec = "vivaldi --app=https://music.apple.com";
+      exec = "vivaldi --app=https://music.youtube.com";
       terminal = false;
       categories = [ "Audio" ];
-      icon = "/home/nearsyh/.icons/apple_music.svg";
+      icon = "/home/nearsyh/.icons/youtube_music.svg";
     };
   };
 }
