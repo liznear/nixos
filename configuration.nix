@@ -106,6 +106,9 @@
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
+  security.sudo.extraConfig = ''
+  Defaults env_keep += "NIX_CONFIG"
+  '';
 
   powerManagement.enable = true;
   boot.kernelParams = [ "resume_offset=38912" "mem_sleep_default=s2idle" "i915.enable_dc=2" "i915.enable_psr=1" ];
@@ -125,7 +128,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
         user = "nearsyh";
       };
     };
