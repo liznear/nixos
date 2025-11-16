@@ -38,8 +38,8 @@
   hardware.trackpoint = {
     device = "TPPS/2 Synaptics TrackPoint";
     enable = true;
-    speed = 30;
-    sensitivity = 120;
+    speed = 80;
+    sensitivity = 180;
   };
 
 

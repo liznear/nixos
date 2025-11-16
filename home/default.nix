@@ -74,6 +74,7 @@
     uv
     dex
     zeal
+    tree
   ];
 
   home.sessionVariables = {

@@ -89,6 +89,10 @@
       disableWhileTyping = true;
       accelSpeed = "-0.5";
     };
+    mouse = {
+      accelProfile = "flat";
+      accelSpeed = 0.08;
+    };
   };
 
   virtualisation = {
