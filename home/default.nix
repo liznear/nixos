@@ -77,6 +77,7 @@
     tree
     zip
     unzip
+    antigravity
   ];
 
   home.sessionVariables = {

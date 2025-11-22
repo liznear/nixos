@@ -68,6 +68,9 @@ export OPENROUTER_API_KEY="op://Private/OpenRouter/Saved on openrouter.ai/Marimo
   };
   programs.starship.enable = true;
   programs.codex.enable = true;
+  programs.gemini-cli = {
+    enable = true;
+  };
 
   programs.ssh = {
     enable = true;
