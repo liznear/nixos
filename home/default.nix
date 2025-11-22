@@ -57,7 +57,7 @@
     autoStart = true;
     settings = {
       faviconService = "twenty";
-      theme.name = "catppuccin-latte";
+      # theme.name = "catppuccin-latte";
     };
   };
 
@@ -77,7 +77,6 @@
     tree
     zip
     unzip
-    antigravity
   ];
 
   home.sessionVariables = {
