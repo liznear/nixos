@@ -29,7 +29,7 @@ function dinit() {
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-source ~/.credentials
+source ~/.config/.credentials
 '';
     plugins = [
       {
