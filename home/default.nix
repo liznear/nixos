@@ -94,4 +94,5 @@
     recursive = true;
   };
   xdg.configFile."niri/config.kdl".source = ./configs/niri/config.kdl;
+  xdg.configFile.".credentials".source = ./configs/credentials;
 }
