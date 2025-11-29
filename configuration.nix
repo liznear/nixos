@@ -39,6 +39,7 @@
     vim
     wget
     vulkan-tools
+    gcc
   ];
 
   fonts = {

@@ -77,6 +77,7 @@
     tree
     zip
     unzip
+    git-crypt
   ];
 
   home.sessionVariables = {
