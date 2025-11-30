@@ -78,6 +78,8 @@
     zip
     unzip
     git-crypt
+    codex-acp
+    google-chrome
   ];
 
   home.sessionVariables = {
