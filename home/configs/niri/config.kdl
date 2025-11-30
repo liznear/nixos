@@ -241,7 +241,7 @@ binds {
     Ctrl+Alt+Q hotkey-overlay-title="Lock the Screen: dms lock" { spawn "dms" "ipc" "call" "lock" "lock"; }
 
     Alt+Shift+C repeat=false { spawn "dms" "ipc" "call" "clipboard" "open"; }
-    Ctrl+Alt+Space repeat=false { spawn "dex" "/etc/profiles/per-user/nearsyh/share/applications/vivaldi-chatgpt.com__-Default.desktop"; }
+    Ctrl+Alt+Space repeat=false { spawn "dex" "/etc/profiles/per-user/nearsyh/share/applications/google-chrome-stable-chatgpt.com__-Default.desktop"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
