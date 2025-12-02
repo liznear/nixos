@@ -28,6 +28,7 @@ function dinit() {
 }
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export GOOGLE_CLOUD_PROJECT_ID=gen-lang-client-0560206947
 
 source ~/.config/.credentials
 '';

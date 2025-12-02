@@ -80,6 +80,11 @@
     git-crypt
     codex-acp
     google-chrome
+    antigravity
+    podman-compose
+    bruno
+    bruno-cli
+    zls
   ];
 
   home.sessionVariables = {
@@ -89,6 +94,7 @@
     TERM = "kitty";
     TERMINAL = "kitty";
     NIXOS_OZONE_WL = "1";
+    PODMAN_COMPOSE_WARNING_LOGS = "false";
   };
 
   home.file.".icons" = {
