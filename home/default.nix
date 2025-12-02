@@ -84,7 +84,10 @@
     podman-compose
     bruno
     bruno-cli
+
+    # language servers
     zls
+    rust-analyzer
   ];
 
   home.sessionVariables = {
