@@ -88,6 +88,8 @@
     # language servers
     zls
     rust-analyzer
+    package-version-server
+    nil
   ];
 
   home.sessionVariables = {
