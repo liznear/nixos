@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
   programs.codex = {
@@ -51,12 +51,18 @@
     enable = true;
     settings = {
       plugin = [ "opencode-openai-codex-auth@4.0.2" ];
+      model = "openai/gpt-5.1-codex-medium-oauth";
+      theme = lib.mkForce "catppuccin";
       mcp = {
         chrome-devtools = {
           type = "local";
           command = [
             "npx"
             "chrome-devtools-mcp@latest"
+            "--executablePath"
+            "/etc/profiles/per-user/nearsyh/bin/google-chrome-stable"
+            "--no-sandbox"
+            "--disable-setuid-sandbox"
           ];
           enabled = true;
         };
@@ -71,7 +77,8 @@
             store = false;
           };
           models = {
-            "gpt-5.1-codex-medium" = {
+            "gpt-5.1-codex-medium-oauth" = {
+              id = "gpt-5.1-codex-medium";
               name = "GPT 5.1 Codex Medium (OAuth)";
               limit = {
                 context = 272000;
@@ -85,7 +92,8 @@
                 store = false;
               };
             };
-            "gpt-5.1-codex-high" = {
+            "gpt-5.1-codex-high-oauth" = {
+              id = "gpt-5.1-codex-high";
               name = "GPT 5.1 Codex High (OAuth)";
               limit = {
                 context = 272000;
@@ -104,4 +112,6 @@
       };
     };
   };
+
+  xdg.configFile."opencode/AGENTS.md".source = ./configs/AGENTS.md;
 }
