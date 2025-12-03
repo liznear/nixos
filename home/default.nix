@@ -14,6 +14,7 @@
     ./dev.nix
     ./vscode.nix
     ./webapp.nix
+    ./ai.nix
   ];
 
   stylix = {
