@@ -1,5 +1,8 @@
 { config, pkgs, lib, ... }:
 
+let 
+  secrets = import ./secrets.nix {};
+in
 {
   programs.git = {
     enable = true;
@@ -67,9 +70,80 @@ source ~/.config/.credentials
     enableZshIntegration = true;
   };
   programs.starship.enable = true;
-  programs.codex.enable = true;
+
+  programs.codex = {
+    enable = true;
+  };
   programs.gemini-cli = {
     enable = true;
+  };
+  programs.crush = {
+    enable = true;
+    settings = {
+      providers = {
+        openai = {
+          id = "openai";
+          name = "OpenAI";
+          base_url = "http://192.168.2.178:8000/v1";
+          type = "openai";
+          api_key = "sk-fake";
+          models = [
+            {
+              id = "gpt-5.1-codex";
+              name = "GPT 5.1 Codex";
+            }
+          ];
+        };
+      };
+      lsp = {
+        go = { command = "gopls"; enabled = true; };
+        nix = { command = "nil"; enabled = true; };
+        rust = { command = "rust-analyzer"; enabled = true; };
+      };
+      mcp = {
+        chrome-devtools = {
+           command = "npx";
+           args = [ "chrome-devtools-mcp@latest" ];
+        };
+      };
+    };
+  };
+
+  programs.zed-editor = {
+    enable = true;
+    settings = {
+      base_keymap = "JetBrains";
+      context_servers = {
+        chrome-devtools = {
+          enabled = true;
+          command = "npx";
+          args = [ "chrome-devtools-mcp@latest" ];
+        };
+        mcp-server-exa-search = {
+          enabled = true;
+          settings = {
+            exa_api_key = secrets.apikey.exa;
+          };
+        };
+        mcp-server-context7 = {
+          enabled = true;
+          settings = {
+            context7_api_key = secrets.apikey.context7;
+          };
+        };
+      };
+      autosave = {
+        after_delay = {
+          milliseconds = 1000;
+        };
+      };
+      ui_font_family = "Fira Sans";
+      buffer_font_family = "Maple Mono NF CN";
+      vim_mode = true;
+      ui_font_size = 16.0;
+      buffer_font_size = 16.0;
+      theme = "Base16 Catppuccin Latte";
+    };
   };
 
   programs.ssh = {

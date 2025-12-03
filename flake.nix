@@ -24,8 +24,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dgop.follows = "dgop";
     };
+    nur = {
+      url = "github:charmbracelet/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nur, stylix, ... }: {
     nixosConfigurations."nixos-lap" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };

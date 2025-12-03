@@ -9,6 +9,8 @@
     inputs.stylix.homeModules.stylix
     inputs.niri.homeModules.niri
     inputs.vicinae.homeManagerModules.default
+    inputs.nur.homeModules.crush
+    # inputs.nur.repos.charmbracelet.crush
     ./shell.nix
     ./dev.nix
     ./vscode.nix
@@ -66,7 +68,6 @@
     vivaldi
     kitty
     helix
-    zed-editor
     obsidian
     htop
     nixd
@@ -78,12 +79,16 @@
     zip
     unzip
     git-crypt
-    codex-acp
     google-chrome
-    antigravity
     podman-compose
     bruno
     bruno-cli
+
+    # Languages
+    nodejs_latest
+
+    # AI
+    codex-acp
 
     # language servers
     zls

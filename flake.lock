@@ -353,6 +353,26 @@
     },
     "nur": {
       "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1764629175,
+        "narHash": "sha256-wjh5YCrS0HKyZXRbyyK7XIavE368b+1PokbxetK5e3Q=",
+        "owner": "charmbracelet",
+        "repo": "nur",
+        "rev": "8dd79e0912f1597202580f97a50422d840fcc70b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "charmbracelet",
+        "repo": "nur",
+        "type": "github"
+      }
+    },
+    "nur_2": {
+      "inputs": {
         "flake-parts": [
           "stylix",
           "flake-parts"
@@ -396,6 +416,7 @@
         "home-manager": "home-manager",
         "niri": "niri",
         "nixpkgs": "nixpkgs_2",
+        "nur": "nur",
         "stylix": "stylix",
         "vicinae": "vicinae"
       }
@@ -496,7 +517,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "nur": "nur",
+        "nur": "nur_2",
         "systems": "systems",
         "tinted-foot": "tinted-foot",
         "tinted-kitty": "tinted-kitty",

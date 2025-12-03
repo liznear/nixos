@@ -62,6 +62,10 @@
   programs.niri.enable = true;
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;
+  programs.clash-verge = {
+    enable = true;
+    autoStart = true;
+  };
 
   services.fprintd.enable = true;
   services.xserver.videoDrivers = [ "modesetting" ];
