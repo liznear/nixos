@@ -29,6 +29,7 @@ in
       ll = "ls -la";
       j = "just";
       za = "zellij attach";
+      zed = "zeditor";
     };
     initContent = ''
       function dinit() {

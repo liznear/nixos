@@ -69,22 +69,25 @@
     kitty
     helix
     obsidian
-    htop
     nixd
     zotero
-    uv
     dex
     zeal
-    tree
+    google-chrome
+    zed-editor
+
+    # Tools
+    uv
+    htop
     zip
     unzip
     git-crypt
-    google-chrome
-    podman-compose
+    ripgrep
+    just
+    tree
     bruno
     bruno-cli
-    zed-editor
-    ripgrep
+    podman-compose
 
     # Languages
     nodejs_latest
