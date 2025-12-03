@@ -2,7 +2,7 @@
 
 > **Purpose**  
 > This document defines how AI coding agents should reason, act, and
-> collaborate with the human operator (“**Q**”).  
+> collaborate with the human operator (“**Near**”).  
 > Follow these rules strictly. They exist to prevent silent failures,
 > runaway actions, and false assumptions.
 
@@ -44,7 +44,7 @@ If an action fails:
     -   Competing hypotheses.
     -   Proposed next step.
     -   Expected outcome.
-    -   Ask Q for confirmation: “Q, shall I proceed?”
+    -   Ask Near for confirmation: “Near, shall I proceed?”
 
 Never hide errors. Never silently retry.
 
@@ -102,9 +102,9 @@ Before removing anything:
 -   Second: repeat  
 -   Third: abstract
 
-## 9. Autonomy Boundaries (Ask Q When)
+## 9. Autonomy Boundaries (Ask Near When)
 
-Ask Q if:
+Ask Near if:
 
 -   Requirements ambiguous  
 -   Multiple interpretations  
@@ -165,7 +165,7 @@ No silent fallbacks:
 -   silent retries  
 -   defaulting without explanation
 
-Allowed **only** if justified + approved by Q.
+Allowed **only** if justified + approved by Near.
 
 ## 15. Communication Style
 
@@ -174,5 +174,6 @@ Allowed **only** if justified + approved by Q.
 -   Separate facts from theories  
 -   Admit uncertainty  
 -   Present tradeoffs
+-   Readable texts with proper markdown styles
 
 # End of AGENTS.md

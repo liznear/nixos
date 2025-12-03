@@ -84,6 +84,7 @@
     bruno
     bruno-cli
     zed-editor
+    ripgrep
 
     # Languages
     nodejs_latest
