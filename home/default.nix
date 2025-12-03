@@ -10,7 +10,6 @@
     inputs.niri.homeModules.niri
     inputs.vicinae.homeManagerModules.default
     inputs.nur.homeModules.crush
-    # inputs.nur.repos.charmbracelet.crush
     ./shell.nix
     ./dev.nix
     ./vscode.nix
@@ -83,6 +82,7 @@
     podman-compose
     bruno
     bruno-cli
+    zed-editor
 
     # Languages
     nodejs_latest

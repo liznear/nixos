@@ -1,13 +1,18 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-let 
-  secrets = import ./secrets.nix {};
+let
+  secrets = import ./secrets.nix { };
 in
 {
   programs.git = {
     enable = true;
     settings = {
-      user.name  = "Liiiz";
+      user.name = "Liiiz";
       user.email = "liizznear@gmail.com";
       init.defaultBranch = "main";
     };
@@ -26,15 +31,15 @@ in
       za = "zellij attach";
     };
     initContent = ''
-function dinit() {
-  nix flake init --template "https://flakehub.com/f/the-nix-way/dev-templates/*#$1"
-}
+      function dinit() {
+        nix flake init --template "https://flakehub.com/f/the-nix-way/dev-templates/*#$1"
+      }
 
-export PATH="$HOME/.cargo/bin:$PATH"
-export GOOGLE_CLOUD_PROJECT_ID=gen-lang-client-0560206947
+      export PATH="$HOME/.cargo/bin:$PATH"
+      export GOOGLE_CLOUD_PROJECT_ID=gen-lang-client-0560206947
 
-source ~/.config/.credentials
-'';
+      source ~/.config/.credentials
+    '';
     plugins = [
       {
         name = "zsh-syntax-highlighting";
@@ -96,14 +101,23 @@ source ~/.config/.credentials
         };
       };
       lsp = {
-        go = { command = "gopls"; enabled = true; };
-        nix = { command = "nil"; enabled = true; };
-        rust = { command = "rust-analyzer"; enabled = true; };
+        go = {
+          command = "gopls";
+          enabled = true;
+        };
+        nix = {
+          command = "nil";
+          enabled = true;
+        };
+        rust = {
+          command = "rust-analyzer";
+          enabled = true;
+        };
       };
       mcp = {
         chrome-devtools = {
-           command = "npx";
-           args = [ "chrome-devtools-mcp@latest" ];
+          command = "npx";
+          args = [ "chrome-devtools-mcp@latest" ];
         };
       };
     };
@@ -111,7 +125,13 @@ source ~/.config/.credentials
 
   programs.zed-editor = {
     enable = true;
-    settings = {
+    extensions = [
+      "nix"
+      "html"
+      "zig"
+      "sql"
+    ];
+    userSettings = {
       base_keymap = "JetBrains";
       context_servers = {
         chrome-devtools = {
@@ -152,26 +172,26 @@ source ~/.config/.credentials
   };
 
   home.file.".ssh/config".text = ''
-Host *
-	IdentityAgent ~/.1password/agent.sock
+    Host *
+    	IdentityAgent ~/.1password/agent.sock
 
-Host lizgit
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/liz.pub
+    Host lizgit
+      HostName github.com
+      User git
+      IdentityFile ~/.ssh/liz.pub
 
-Host neargit
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/near.pub
+    Host neargit
+      HostName github.com
+      User git
+      IdentityFile ~/.ssh/near.pub
 
-Host linux-home
-  HostName 192.168.2.159
-  User nearsyh
-  ForwardAgent yes
-  IdentityFile ~/.ssh/liz.pub
-  SetEnv TERM=xterm-256color
-'';
+    Host linux-home
+      HostName 192.168.2.159
+      User nearsyh
+      ForwardAgent yes
+      IdentityFile ~/.ssh/liz.pub
+      SetEnv TERM=xterm-256color
+  '';
 
   home.file.".ssh" = {
     source = ./configs/ssh;
