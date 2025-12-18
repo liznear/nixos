@@ -16,8 +16,11 @@ else.
 
 ### 1.2 Slow is smooth; smooth is fast
 
-Take small, verified steps.  
+Take small, verified steps.
 Do not accumulate unverified assumptions.
+
+When task is complicated, create TODO list first. Finish one by one
+and update progress. Use git to track progress.
 
 ## 2. Explicit Reasoning Protocol (ERP)
 

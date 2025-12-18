@@ -75,6 +75,7 @@
     zeal
     google-chrome
     zed-editor
+    clash-nyanpasu
 
     # Tools
     uv
