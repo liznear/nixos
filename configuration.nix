@@ -21,9 +21,11 @@
 
   time.timeZone = "Asia/Shanghai";
 
-
   i18n = {
-    supportedLocales = [ "en_US.UTF-8/UTF-8" "zh_CN.UTF-8/UTF-8" ];
+    supportedLocales = [
+      "en_US.UTF-8/UTF-8"
+      "zh_CN.UTF-8/UTF-8"
+    ];
   };
   i18n.inputMethod = {
     enable = true;
@@ -72,15 +74,15 @@
     enable = true;
     settings = {
       battery = {
-         governor = "powersave";
-         turbo = "never";
-         enable_thresholds = true;
-         start_threshold = 60;
-         stop_threshold = 80;
+        governor = "powersave";
+        turbo = "never";
+        enable_thresholds = true;
+        start_threshold = 60;
+        stop_threshold = 80;
       };
       charger = {
-         governor = "performance";
-         turbo = "auto";
+        governor = "performance";
+        turbo = "auto";
       };
     };
   };
@@ -107,16 +109,25 @@
 
   users.users.nearsyh = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "podman" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "podman"
+    ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
   security.sudo.extraConfig = ''
-  Defaults env_keep += "NIX_CONFIG"
+    Defaults env_keep += "NIX_CONFIG"
   '';
 
   powerManagement.enable = true;
-  boot.kernelParams = [ "resume_offset=38912" "mem_sleep_default=s2idle" "i915.enable_dc=2" "i915.enable_psr=1" ];
+  boot.kernelParams = [
+    "resume_offset=38912"
+    "mem_sleep_default=s2idle"
+    "i915.enable_dc=2"
+    "i915.enable_psr=1"
+  ];
   boot.resumeDevice = "/dev/disk/by-uuid/050a2230-5bc9-4e1e-8ff2-e3b142515427";
   swapDevices = [
     {
@@ -144,7 +155,10 @@
   '';
 
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     substituters = [
       "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=10"
       "https://mirrors.ustc.edu.cn/nix-channels/store?priority=5"

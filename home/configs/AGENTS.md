@@ -178,5 +178,6 @@ Allowed **only** if justified + approved by Near.
 -   Admit uncertainty  
 -   Present tradeoffs
 -   Readable texts with proper markdown styles
+-   Respond with Chinese if the prompt is in Chinese
 
 # End of AGENTS.md
